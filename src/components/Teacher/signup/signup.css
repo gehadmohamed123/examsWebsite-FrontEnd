@@ -1,0 +1,13 @@
+#signup {
+    background-color: #f7f7f7;
+  }
+  
+  .card {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  img.rounded-circle {
+    background-color: #e0e0e0;
+    padding: 20px;
+  }

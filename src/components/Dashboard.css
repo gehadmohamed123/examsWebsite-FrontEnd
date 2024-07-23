@@ -1,0 +1,47 @@
+.dashboard {
+    font-family: Arial, sans-serif;
+ /*   background-color: #64def0; /* Darker background color */
+    min-height: 100vh; 
+    color: white; 
+  }
+  
+  .navbar {
+    background-color: #495057; /* Darker navbar color */
+  }
+  
+  .role-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .role-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    background-color: #d8e8f6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    color: white; /* Text color for role cards */
+  }
+  
+  .role-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .role-card img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .role-card h3 {
+    margin: 10px 0 5px;
+  }
+  
+  .role-card p {
+    margin: 0;
+  }
+  
