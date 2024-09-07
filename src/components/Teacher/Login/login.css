@@ -1,6 +1,6 @@
-#signup {
-  background-color: #f7f7f7;
-}
+#login {
+    background-color: #f7f7f7;
+  }
   
   .card {
     max-width: 400px;
@@ -11,3 +11,4 @@
     background-color: #e0e0e0;
     padding: 20px;
   }
+  
