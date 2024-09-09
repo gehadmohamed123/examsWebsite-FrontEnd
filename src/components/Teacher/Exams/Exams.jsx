@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Exams.css';
 
 const Exams = () => {
   const [exams, setExams] = useState([]);
@@ -11,7 +12,7 @@ const Exams = () => {
       try {
         const response = await axios.get('http://localhost:3000/api/admin/getExamsCreatedByUser', {
           headers: {
-            authorization:  token
+            authorization: token
           }
         });
         setExams(response.data);
@@ -27,24 +28,45 @@ const Exams = () => {
     }
   }, [token]);
 
+  const handleDelete = async (examId) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/admin/exams/${examId}`, {
+        headers: {
+          authorization: token
+        }
+      });
+      setExams(exams.filter(exam => exam.id !== examId));
+    } catch (err) {
+      setError(err.response?.data?.message || 'Error deleting exam');
+    }
+  };
+
   return (
-    <div className='text-dark
-  '>
+    <div className='exams-container'>
       {error && <p>Error: {error}</p>}
-      <h2>Exams Created by You</h2>
-      <ul>
+      <h2 className='text-dark m-5'>Exams Created by You:</h2>
+      <div className='cards-container'>
         {exams.length > 0 ? (
           exams.map(exam => (
-            <li key={exam.id}>
-              <strong>{exam.title}</strong><br />
-              Description: {exam.description}<br />
-              Status: {exam.is_open ? 'Open' : 'Closed'}
-            </li>
+            <div key={exam.id} className='card'>
+              <div className='card-inner'>
+                <div className='card-front'>
+                  <button className='delete-button' onClick={() => handleDelete(exam.id)}>x</button>
+                  <h3>{exam.title}</h3>
+                </div>
+                <div className='card-back'>
+                  <button className='delete-button' onClick={() => handleDelete(exam.id)}>x</button>
+                  <p>{exam.description}</p>
+                  <p>Status: {exam.is_open ? 'Open' : 'Closed'}</p>
+                </div>
+              </div>
+            </div>
           ))
         ) : (
           <p>No exams found.</p>
         )}
-      </ul>
+      </div>
+      <a href="/create-exam" className='create-button'>Create New Exam +</a>
     </div>
   );
 };

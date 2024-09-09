@@ -77,11 +77,11 @@ const Login = ({ saveUserData }) => {
       {error.length > 0 && <div className='alert alert-danger my-2'>{error}</div>}
       
       <div className="container d-flex justify-content-center align-items-center min-vh-100" id='login'>
-        <div className="card p-4 shadow">
+        <div className="card-login p-4 shadow">
           <div className="text-center mb-4">
             <img src={Teacherimg} alt="Avatar" className="rounded-circle" width="100" />
           </div>
-          <h2 className="text-center mb-4">Sign In</h2>
+          <h2 className="text-center mb-4 text-dark">Sign In</h2>
           <form onSubmit={submitLoginForm}>
             <div className="form-group mb-3">
               <input name='email' onChange={getUserData} type="email" className="form-control" placeholder="Email" />
