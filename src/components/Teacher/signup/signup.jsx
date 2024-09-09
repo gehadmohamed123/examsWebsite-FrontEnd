@@ -65,7 +65,7 @@ const SignUp = () => {
     const schema = Joi.object({
       name: Joi.string().min(3).max(10).pattern(/^[A-Z]/).required(), 
       email: Joi.string().email({ tlds: { allow: ['com', 'net'] } }).required(),
-      password: Joi.string().pattern(/^[A-Z][a-z]{3,6}/), 
+      password: Joi.string().pattern(/^[1-9][2-9]{3,6}/), 
     });
   
     return schema.validate(user , {abortEarly: false});

@@ -1,0 +1,93 @@
+/* ملف CSS لتحسين الأنماط وإضافة تأثيرات حركية */
+
+/* حركة الفتح Fade-In */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* تصميم Spinner لمظهر تحميل أفضل */
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 20px;
+  }
+  
+  /* تحسين تصميم النموذج والزرار */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .btn-outline-primary, .btn-outline-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-outline-primary:hover, .btn-outline-success:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* تصميم بطاقات الأسئلة */
+  .question-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .question-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .question-header {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #343a40;
+  }
+  
+  .answer-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .answer-option:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .answer-option input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .answer-option label {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #495057;
+  }
+  
