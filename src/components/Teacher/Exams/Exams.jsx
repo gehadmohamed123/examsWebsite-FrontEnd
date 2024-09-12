@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; 
 import './Exams.css';
 
-const Exams = () => {
+const Exams = ({ userData }) => {  // استقبال userData كـ prop
   const [exams, setExams] = useState([]);
   const [error, setError] = useState(null);
   const token = localStorage.getItem('userToken');
@@ -26,7 +27,7 @@ const Exams = () => {
     } else {
       setError('No token found');
     }
-  }, [token]);
+  }, [token, userData]);  // إضافة userData هنا
 
   const handleDelete = async (examId) => {
     try {
@@ -66,7 +67,7 @@ const Exams = () => {
           <p>No exams found.</p>
         )}
       </div>
-      <a href="/create-exam" className='create-button'>Create New Exam +</a>
+      <Link to="/create-exam" className='create-button'>Create New Exam +</Link> 
     </div>
   );
 };

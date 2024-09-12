@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import SignUp from './components/Teacher/signup/signup';
@@ -9,16 +8,17 @@ import Layout from './components/Layout';
 import { jwtDecode } from 'jwt-decode';
 import Exams from './components/Teacher/Exams/Exams';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-const App = () => {
 
-  
+const App = () => {
   const [userData, setUserData] = useState(null);
 
   function saveUserData() {
     let encodedToken = localStorage.getItem('userToken');
-    let decodedToken = jwtDecode(encodedToken);
-    console.log(decodedToken);
-    setUserData(decodedToken);
+    if (encodedToken) {
+      let decodedToken = jwtDecode(encodedToken);
+      console.log(decodedToken);
+      setUserData(decodedToken); // تحديث حالة userData هنا
+    }
   }
 
   const routers = createBrowserRouter([
@@ -30,7 +30,7 @@ const App = () => {
         { path: '/signup', element: <SignUp /> },
         { path: '/student', element: <StudentDashboard /> },
         { path: '/login', element: <Login saveUserData={saveUserData} /> },
-        { path: '/exams', element:<ProtectedRoute userData={userData}> <Exams /></ProtectedRoute> }
+        { path: '/exams', element: <ProtectedRoute userData={userData}><Exams userData={userData} /></ProtectedRoute> } // تمرير userData إلى Exams
       ]
     }
   ]);

@@ -30,6 +30,7 @@ const Login = ({ saveUserData }) => {
         localStorage.setItem('userToken', data.token);
         saveUserData();
         navigate('/exams');
+        window.location.reload(); // ليس الحل المثالي، ولكنه يمكن أن يكون حلاً مؤقتًا
       } else {
         setIsLoading(false);
         setError(data.message || 'An error occurred during registration');
@@ -76,7 +77,7 @@ const Login = ({ saveUserData }) => {
       ))}
       {error.length > 0 && <div className='alert alert-danger my-2'>{error}</div>}
       
-      <div className="container d-flex justify-content-center align-items-center min-vh-100" id='login'>
+      <div className="container d-flex justify-content-center align-items-center min-vh-100 login" >
         <div className="card-login p-4 shadow">
           <div className="text-center mb-4">
             <img src={Teacherimg} alt="Avatar" className="rounded-circle" width="100" />
@@ -94,7 +95,7 @@ const Login = ({ saveUserData }) => {
             </button>
           </form>
           <div className="text-center mt-3">
-            <a href="#">Forget Password</a>
+            <Link to='/'>Forget Password</Link>
           </div>
           <div className="text-center mt-3">
             <Link to="/signup">Sign Up</Link>

@@ -80,12 +80,12 @@ const SignUp = () => {
     }
   })}
   {error.length > 0 ? <div className='alert alert-danger my-2'>{error}</div> : ''}
-    <div className="container d-flex justify-content-center align-items-center min-vh-100" id='signup'>
-      <div className="card p-4 shadow">
+    <div className="container d-flex justify-content-center align-items-center min-vh-100 signup" >
+      <div className="card-login p-4 shadow">
         <div className="text-center mb-4">
           <img src={Teacherimg} alt="Avatar" className="rounded-circle" width="100" />
         </div>
-        <h2 className="text-center mb-4">Sign Up</h2>
+        <h2 className="text-center mb-4 text-dark">Sign Up</h2>
         <form onSubmit={submitRegisterForm}>
         <div className="form-group mb-3">
        <input name="name" onChange={getUserData} type="text" className="form-control" placeholder="Name" />

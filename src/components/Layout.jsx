@@ -9,11 +9,9 @@ const Layout = ({userData}) => {
     <div className="dashboard">
       <nav className="navbar navbar-expand-lg navbar-dark bg-info">
         <div className="container">
-          <Link to="/" className="navbar-brand">TestTrek</Link>
+          <Link to="#" className="navbar-brand">TestTrek</Link>
         </div>
       </nav>
-
-      {/* This is the Outlet where child routes will be rendered */}
       <Outlet />
     </div>
   );

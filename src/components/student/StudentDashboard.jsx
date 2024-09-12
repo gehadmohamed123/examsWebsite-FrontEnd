@@ -50,7 +50,12 @@ const StudentDashboard = () => {
       }
     } catch (err) {
       console.error("API Error:", err);
-      notifyError('Could not retrieve exam data. Please check the exam ID.');
+      // Show error message from backend if available
+      if (err.response && err.response.data) {
+        notifyError(err.response.data);
+      } else {
+        notifyError('Could not retrieve exam data. Please check the exam ID.');
+      }
     }
     setLoading(false);
   };
@@ -67,23 +72,22 @@ const StudentDashboard = () => {
       notifyError('Student ID cannot be empty.');
       return;
     }
-  
+
     const answersArray = Object.keys(responses).map((questionId) => ({
       question_id: questionId,
       answer_id: responses[questionId],
     }));
-  
+
     const requestBody = {
       examId,
       studentId,
       answers: answersArray,
     };
-  
+
     try {
       const response = await axios.post('http://localhost:3000/api/student/submit-answer', requestBody);
       console.log("Submission Response:", response.data);
-  
-      // Check for specific error messages from backend
+
       if (response.data.message) {
         if (response.data.message.includes('Answer for question')) {
           notifyError('You have already submitted this exam.');
@@ -97,22 +101,15 @@ const StudentDashboard = () => {
       }
     } catch (err) {
       console.error("Submission Error:", err);
-  
-      // Handle specific error cases based on backend response
+
+      // Show specific error message from backend if available
       if (err.response && err.response.data) {
-        if (err.response.data.includes('The exam has ended')) {
-          notifyError('The exam time has ended. You cannot submit answers.');
-        } else if (err.response.data.includes('already submitted')) {
-          notifyError('You have already submitted your answers.');
-        } else {
-          notifyError('Submission failed. Please try again.');
-        }
+        notifyError(err.response.data);
       } else {
         notifyError('Submission failed. Please try again.');
       }
     }
   };
-  
 
   return (
     <div className="container my-5">
@@ -196,23 +193,22 @@ const StudentDashboard = () => {
           </button>
         </div>
       )}
-{submitted && (
-  <>
-    <motion.div
-      className="success-message"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <h2 className="text-success">Submission Successful!</h2>
-    </motion.div>
-    <Confetti
-      width={window.innerWidth}
-      height={window.innerHeight}
-    />
-  </>
-)}
-
+      {submitted && (
+        <>
+          <motion.div
+            className="success-message"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-success">Submission Successful!</h2>
+          </motion.div>
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />
+        </>
+      )}
 
       <ToastContainer />
     </div>

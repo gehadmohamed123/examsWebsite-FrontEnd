@@ -5,7 +5,7 @@
   .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Reduced gap between cards */
+    gap: 10px; 
     justify-content: center;
     margin-bottom: 20px;
   }
@@ -15,7 +15,7 @@
     height: 300px;
     perspective: 1000px;
     position: relative;
-    margin: 0; /* Remove margin to keep cards closer */
+    margin: 0; 
   }
   
   .card-inner {
@@ -43,7 +43,7 @@
   }
   
   .card-front {
-    background: #d9edf7; /* Bootstrap info color */
+    background: #d9edf7; 
     border: 1px solid #bce8f1;
     color: #31708f;
     z-index: 2;
@@ -52,7 +52,7 @@
   .card-back {
     background: #f5f5f5;
     border: 1px solid #ddd;
-    color: #333; /* Text color for better readability */
+    color: #333;
     transform: rotateY(180deg);
     padding: 10px;
     box-sizing: border-box;
@@ -63,8 +63,8 @@
   }
   
   .card-back p {
-    margin: 5px 0; /* Margin between paragraphs */
-    text-align: center; /* Center align text */
+    margin: 5px 0;
+    text-align: center;
   }
   
   .create-button {
@@ -74,7 +74,7 @@
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #5bc0de; /* Bootstrap info color */
+    background-color: #5bc0de; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -91,9 +91,9 @@
     right: 10px;
     width: 24px;
     height: 24px;
-    border: 2px solid #31708f; /* Blue border */
-    background: transparent; /* Transparent background */
-    color: #31708f; /* Blue color for the "x" */
+    border: 2px solid #31708f; 
+    background: transparent;
+    color: #31708f; 
     border-radius: 50%;
     font-size: 14px;
     font-weight: bold;
