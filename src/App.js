@@ -8,6 +8,7 @@ import Layout from './components/Layout';
 import { jwtDecode } from 'jwt-decode';
 import Exams from './components/Teacher/Exams/Exams';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import CreateExam from './components/Teacher/CreateExam/CreateExam';
 
 const App = () => {
   const [userData, setUserData] = useState(null);
@@ -17,7 +18,7 @@ const App = () => {
     if (encodedToken) {
       let decodedToken = jwtDecode(encodedToken);
       console.log(decodedToken);
-      setUserData(decodedToken); // تحديث حالة userData هنا
+      setUserData(decodedToken); 
     }
   }
 
@@ -30,7 +31,8 @@ const App = () => {
         { path: '/signup', element: <SignUp /> },
         { path: '/student', element: <StudentDashboard /> },
         { path: '/login', element: <Login saveUserData={saveUserData} /> },
-        { path: '/exams', element: <ProtectedRoute userData={userData}><Exams userData={userData} /></ProtectedRoute> } // تمرير userData إلى Exams
+        { path: '/exams', element: <ProtectedRoute userData={userData}><Exams userData={userData} /></ProtectedRoute> },
+        {path: '/create-exam', element:<CreateExam/>}
       ]
     }
   ]);
