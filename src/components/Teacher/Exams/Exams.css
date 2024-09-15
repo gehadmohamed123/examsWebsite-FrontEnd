@@ -1,108 +1,124 @@
 .exams-container {
-    text-align: center;
-  }
-  
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; 
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .card {
-    width: 200px;
-    height: 300px;
-    perspective: 1000px;
-    position: relative;
-    margin: 0; 
-  }
-  
-  .card-inner {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-    position: relative;
-    transform-origin: center;
-  }
-  
-  .card:hover .card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .card-front, .card-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-  }
-  
-  .card-front {
-    background: #d9edf7; 
-    border: 1px solid #bce8f1;
-    color: #31708f;
-    z-index: 2;
-  }
-  
-  .card-back {
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    color: #333;
-    transform: rotateY(180deg);
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .card-back p {
-    margin: 5px 0;
-    text-align: center;
-  }
-  
-  .create-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #5bc0de; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .create-button:hover {
-    background-color: #31b0d5;
-  }
-  
-  .delete-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #31708f; 
-    background: transparent;
-    color: #31708f; 
-    border-radius: 50%;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 20px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  position: relative;
+  margin: 0; 
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  position: relative;
+  transform-origin: center;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.card-front {
+  background: #d9edf7; 
+  border: 1px solid #bce8f1;
+  color: #31708f;
+  z-index: 2;
+}
+
+.card-back {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #333;
+  transform: rotateY(180deg);
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back p {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.create-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #5bc0de; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.create-button:hover {
+  background-color: #31b0d5;
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #31708f; 
+  background: transparent;
+  color: #31708f; 
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling for the More Details link */
+.details-link {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #31708f;
+  text-decoration: none;
+  border: 1px solid #31708f;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.details-link:hover {
+  background-color: #31708f;
+  color: #fff;
+}

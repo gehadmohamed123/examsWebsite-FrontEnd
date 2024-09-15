@@ -62,9 +62,7 @@ export default function CreateExam() {
           authorization: token
         }
       });
-      // Display success message with Toastify
       toast.success('Exam created successfully!');
-      // Clear the form
       setTitle('');
       setDescription('');
       setQuestions([

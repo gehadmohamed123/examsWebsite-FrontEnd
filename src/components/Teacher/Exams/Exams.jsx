@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import './Exams.css';
 
-const Exams = ({ userData }) => {  // استقبال userData كـ prop
+const Exams = ({ userData }) => {  
   const [exams, setExams] = useState([]);
   const [error, setError] = useState(null);
   const token = localStorage.getItem('userToken');
@@ -27,7 +27,7 @@ const Exams = ({ userData }) => {  // استقبال userData كـ prop
     } else {
       setError('No token found');
     }
-  }, [token, userData]);  // إضافة userData هنا
+  }, [token, userData]);  
 
   const handleDelete = async (examId) => {
     try {
@@ -59,6 +59,7 @@ const Exams = ({ userData }) => {  // استقبال userData كـ prop
                   <button className='delete-button' onClick={() => handleDelete(exam.id)}>x</button>
                   <p>{exam.description}</p>
                   <p>Status: {exam.is_open ? 'Open' : 'Closed'}</p>
+                  <Link to={`/exam-details/${exam.id}`} className='details-link'>More details</Link>
                 </div>
               </div>
             </div>

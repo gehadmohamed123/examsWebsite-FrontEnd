@@ -1,7 +1,7 @@
-/* CreateExam.css */
+
 .container-create {
-    max-width: 600px; /* تعيين الحد الأقصى للعرض */
-    margin: 0 auto; /* لتوسيط النموذج */
+    max-width: 600px; 
+    margin: 0 auto; 
     padding: 20px;
     background-color: #f4f4f9;
     border-radius: 10px;
@@ -52,7 +52,7 @@
   button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color: #5bc0de; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -62,7 +62,7 @@
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #08b7ec; 
   }
   
   button.add-question {
