@@ -73,4 +73,18 @@
   button.add-question:hover {
     background-color: #007bb5;
   }
+  .remove-question {
+    background-color: #ff4d4d; 
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .remove-question:hover {
+    background-color: #ff1a1a;
+  }
   

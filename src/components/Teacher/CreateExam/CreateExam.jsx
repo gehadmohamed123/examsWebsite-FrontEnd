@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './CreateExam.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +19,8 @@ export default function CreateExam() {
       ]
     }
   ]);
+
+  const navigate = useNavigate();
 
   const handleQuestionChange = (index, field, value) => {
     const updatedQuestions = [...questions];
@@ -46,6 +49,11 @@ export default function CreateExam() {
     ]);
   };
 
+  const removeQuestion = (index) => {
+    const updatedQuestions = questions.filter((_, qIndex) => qIndex !== index);
+    setQuestions(updatedQuestions);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const examData = {
@@ -53,34 +61,27 @@ export default function CreateExam() {
       description,
       questions
     };
-
+  
     const token = localStorage.getItem('userToken');
-
+  
     try {
       await axios.post('http://localhost:3000/api/admin/add-exam', examData, {
         headers: {
           authorization: token
         }
       });
+      
       toast.success('Exam created successfully!');
-      setTitle('');
-      setDescription('');
-      setQuestions([
-        {
-          question_text: '',
-          answers: [
-            { answer_text: '', is_correct: false },
-            { answer_text: '', is_correct: false },
-            { answer_text: '', is_correct: false },
-            { answer_text: '', is_correct: false }
-          ]
-        }
-      ]);
+  
+      setTimeout(() => {
+        navigate('/exams'); 
+      }, 3000);
     } catch (error) {
       console.error('Error creating exam', error);
       toast.error('Failed to create exam. Please try again.');
     }
   };
+  
 
   return (
     <div className="container-create">
@@ -106,7 +107,10 @@ export default function CreateExam() {
 
         {questions.map((question, qIndex) => (
           <div key={qIndex} className="question-block text-dark">
-            <h4>Question {qIndex + 1}</h4>
+            <h4>
+              Question {qIndex + 1} 
+              <button type="button" className="remove-question" onClick={() => removeQuestion(qIndex)}>X</button>
+            </h4>
             <input
               type="text"
               placeholder="Question Text"

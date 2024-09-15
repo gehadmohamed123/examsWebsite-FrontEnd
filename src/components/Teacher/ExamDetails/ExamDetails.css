@@ -1,0 +1,70 @@
+.exam-details-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exam-info {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.exam-info p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.exam-info strong {
+    color: #007bff;
+}
+
+.download-btn, .open-btn, .close-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.download-btn {
+    background-color: #086bd4;
+    color: white;
+}
+
+.download-btn:hover {
+    background-color:#599de6;
+}
+
+.open-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.open-btn:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.close-btn:hover {
+    background-color: #c82333;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
