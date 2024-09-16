@@ -56,23 +56,34 @@ export default function CreateExam() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+   
+    const isValid = questions.every((question) => 
+      question.answers.some((answer) => answer.is_correct)
+    );
+
+    if (!isValid) {
+      toast.error('Each question must have at least one correct answer.');
+      return; 
+    }
+
     const examData = {
       title,
       description,
       questions
     };
-  
+
     const token = localStorage.getItem('userToken');
-  
+
     try {
       await axios.post('http://localhost:3000/api/admin/add-exam', examData, {
         headers: {
           authorization: token
         }
       });
-      
+
       toast.success('Exam created successfully!');
-  
+
       setTimeout(() => {
         navigate('/exams'); 
       }, 3000);
@@ -81,7 +92,6 @@ export default function CreateExam() {
       toast.error('Failed to create exam. Please try again.');
     }
   };
-  
 
   return (
     <div className="container-create">
